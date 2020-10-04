@@ -22,6 +22,10 @@ After deployment it will generate API gateway URL that need to be added to DS sm
 
 ![get_endpoint](/images/get_endpoint.jpg)
 
+Once application is deployed add or update bellow environment variables from lambda function.
+
+![add_environment](/images/add_environment.jpg)
+
 Add api gateway URL to DSSC web hook console
 
 ![add_api_to_webhook](images/add_api_to_webhook.jpg)
