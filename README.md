@@ -24,6 +24,19 @@ After deployment it will generate API gateway URL that need to be added to DS sm
 
 Once application is deployed add or update bellow environment variables from lambda function.
 
+    Environment Variables:
+        THREADFIX_URL                     <add_threadfix_url>
+        THREADFIX_VERSION                 <add_version>
+        THREADFIX_API_KEY                 <add_api_key>
+        THREADFIX_ID                      <add_threadfix_id>
+        DSSC_URL                          <add_smartcheck_url>
+        DSSC_SMARTCHECK_USER              <add_smartcheck_user>
+        DSSC_SMARTCHECK_PASSWORD          <add_smartcheck_password>
+        DSSC_MIN_SEVERITY                 <min_severity>
+        DSSC_SHOW_FIXED                   <add_true_or_false>
+        DSSC_SHOW_OVERRIDDEN              <add_true_or_false>
+        DSSC_INSECURE_SKIP_TLS_VERIFY     <add_true_or_false>
+
 ![add_environment](/images/add_environment.jpg)
 
 Add api gateway URL to DSSC web hook console
