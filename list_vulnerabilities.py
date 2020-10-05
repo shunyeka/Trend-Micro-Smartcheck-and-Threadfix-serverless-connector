@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-#Here we can list the vulnerabilities from smart check
+# Here we can list the vulnerabilities from smart check
 
 import argparse
 import os
@@ -48,8 +48,8 @@ def sev_list(min_level):
     return ALL_SEVERITIES[:ALL_SEVERITIES.index(min_level) + 1]
 
 
-def get_analysis(smartcheck_host, smartcheck_user, smartcheck_password, min_severity, image, show_fixed,
-                 show_overridden,
+def get_analysis(smartcheck_host, smartcheck_user, smartcheck_password,image,min_severity='high', show_fixed=False,
+                 show_overridden=False,
                  insecure_skip_tls_verify=True):
     result = {
         "malware": {
@@ -89,6 +89,18 @@ def get_analysis(smartcheck_host, smartcheck_user, smartcheck_password, min_seve
 
     if smartcheck_host is None:
         print('smartcheck-host is required', file=sys.stderr)
+        sys.exit(1)
+
+    if smartcheck_user is None:
+        print('smartcheck_user is required', file=sys.stderr)
+        sys.exit(1)
+
+    if smartcheck_password is None:
+        print('smartcheck_password is required', file=sys.stderr)
+        sys.exit(1)
+
+    if image is None:
+        print('scan image is required', file=sys.stderr)
         sys.exit(1)
 
     try:
@@ -166,7 +178,7 @@ def get_analysis(smartcheck_host, smartcheck_user, smartcheck_password, min_seve
                     if 'override' in vulnerability:
                         if not show_overridden:
                             continue
-                        
+
                     description = (" ", vulnerability['description'])['description' in vulnerability]
                     cve = vulnerability['name']
                     link = vulnerability['link']
@@ -195,4 +207,3 @@ def get_analysis(smartcheck_host, smartcheck_user, smartcheck_password, min_seve
 
             break
     return result
-
